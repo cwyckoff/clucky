@@ -14,5 +14,6 @@
   :profiles {:uberjar {:aot :all}
              :dev [:dev-common :dev-overrides]
              :dev-common {:dependencies [[org.clojure/tools.namespace "0.2.7"]]
-                          :source-paths ["dev"]}
+                          :source-paths ["dev"]
+                          :repl-options {:init-ns user}}
              :dev-overrides {}})
