@@ -1,5 +1,7 @@
 (ns user
   (:require [clojure.pprint :refer [pprint]]
+            [clojure.repl :refer [doc find-doc]]
+            [clojure.java.javadoc :refer [javadoc]]
             [clojure.tools.namespace.repl :refer [refresh refresh-all]]
             [clojure.test :as test]
             [environ.core :refer [env]]

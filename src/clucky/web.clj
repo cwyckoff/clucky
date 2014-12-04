@@ -4,7 +4,8 @@
             [compojure.handler :refer [api]]
             [compojure.route :refer [not-found]]
             [com.stuartsierra.component :as component]
-            [clucky.udp :as udp]))
+            [clucky.udp :as udp]
+            [clucky.whitelist :as whitelist]))
 
 (def cors-headers
   "CORS headers and values to be appended to requests"
@@ -12,6 +13,11 @@
    "Access-Control-Allow-Methods" "POST"
    "Access-Control-Max-Age" "604800"
    "Access-Control-Allow-Credentials" "true"})
+
+(defn bytes->string
+  "translate a bytesinputbuffer to a string"
+  [b]
+  (-> b .bytes String.))
 
 (defn add-cors
   "middleware to add CORS headers to response"
@@ -27,7 +33,8 @@
   (routes
     (GET "/v1/health-check" [] "OK")
     (POST "/v1/send" [:as {body :body}]
-      (udp/write (.bytes body))
+      (let [msg (whitelist/scrub (bytes->string body))]
+        (if (> (count msg) 0) (udp/write (.getBytes msg))))
       {:status 204 :headers {} :body ""})
     (not-found "404")))
 
