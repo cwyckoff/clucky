@@ -3,11 +3,13 @@
             [clucky.web :as web])
   (:gen-class))
 
-(defn app []
+(defn app
   "create a new application system"
+  []
   (component/system-map
     :web (web/create)))
 
-(defn -main [& args]
+(defn -main
   "Start the application"
+  [& args]
   (component/start (app)))

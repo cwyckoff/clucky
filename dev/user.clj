@@ -1,6 +1,7 @@
 (ns user
   (:require [clojure.pprint :refer [pprint]]
             [clojure.tools.namespace.repl :refer [refresh refresh-all]]
+            [clojure.test :as test]
             [environ.core :refer [env]]
             [com.stuartsierra.component :as component]
             [clucky.core :refer [app]]))
