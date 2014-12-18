@@ -1,8 +1,9 @@
 (ns clucky.store.redis
   (:require [clucky.protocols :as p]
-            [taoensso.carmine :as car :refer [wcar]]))
+            [taoensso.carmine :as car :refer [wcar]]
+            [environ.core :refer [env]]))
 
-(def conn {:pool {} :spec {:host "dinghy.local" :port 6379}})
+(def conn {:pool {} :spec {:host (env :redis-host) :port 6379}})
 
 (defrecord RedisStore [conn]
   p/Store
