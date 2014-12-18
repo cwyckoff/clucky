@@ -1,36 +1,35 @@
-# clucky
+# Clucky
 
-FIXME: description
+Clucky is an HTTP -> StatsD proxy to facilitate RUM. It is inspired by
+[Bucky](http://github.hubspot.com/BuckyServer/), but offers a few additional
+advantages:
+
+* Whitelisting of keys to mitigate DOS/DDOS attacks on your Graphite server;
+* Serves requests on multiple threads for higher performance;
 
 ## Installation
 
-Download from http://example.com/FIXME.
+TODO
 
 ## Usage
 
-FIXME: explanation
-
-    $ java -jar clucky-0.1.0-standalone.jar [args]
+TODO
 
 ## Options
 
-FIXME: listing of options this app accepts.
+TODO
 
 ## Examples
 
-...
+TODO
 
 ### Bugs
 
-...
-
-### Any Other Sections
-### That You Think
-### Might be Useful
+TODO
 
 ## License
 
-Copyright © 2014 FIXME
+Copyright © 2014 Zach Pendleton
 
 Distributed under the Eclipse Public License either version 1.0 or (at
 your option) any later version.
